@@ -1,0 +1,8 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# https://www.playframework.com/documentation/latest/ScalaRouting
+# ~~~~
+
+POST     /api/modulos/validarLogin     controllers.ModulosController.validarLogin()
+
+POST     /api/usuarios/validarIngreso     controllers.UsuariosController.validarIngreso()
