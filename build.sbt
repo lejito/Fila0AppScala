@@ -9,8 +9,6 @@ scalaVersion := "2.13.10"
 
 PlayKeys.devSettings += "play.server.http.port" -> "3000"
 
-javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
-
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test
 libraryDependencies += "org.postgresql" % "postgresql" % "42.2.24"
