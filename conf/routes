@@ -6,3 +6,12 @@
 POST     /api/modulos/validarLogin     controllers.ModulosController.validarLogin()
 
 POST     /api/usuarios/validarIngreso     controllers.UsuariosController.validarIngreso()
+
+POST     /api/turnos/registrar     controllers.TurnosController.registrar()
+GET     /api/turnos/buscarPendientes     controllers.TurnosController.buscarPendientes()
+GET     /api/turnos/buscarAsignados     controllers.TurnosController.buscarAsignados()
+GET     /api/turnos/buscarCompletados     controllers.TurnosController.buscarCompletados()
+GET     /api/turnos/buscarCancelados     controllers.TurnosController.buscarCancelados()
+PUT     /api/turnos/asignar     controllers.TurnosController.asignar()
+PUT     /api/turnos/actualizarEstado     controllers.TurnosController.actualizarEstado()
+PUT     /api/turnos/devolverAPendientes     controllers.TurnosController.devolverAPendientes()

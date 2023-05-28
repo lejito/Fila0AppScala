@@ -1,6 +1,6 @@
 package utils
 
-import java.sql.{Connection, DriverManager, ResultSet}
+import java.sql.{Connection, DriverManager, ResultSet, Statement}
 import scala.util.Using
 
 object Fila0Connection {
@@ -24,6 +24,20 @@ object Fila0Connection {
       }
 
       preparedStatement.executeQuery()
+    }
+  }
+
+  def executeUpdate(query: String, values: List[Any] = List.empty): ResultSet = {
+    withConnection { connection =>
+      val preparedStatement = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS)
+
+      // Asigna los valores a los parámetros del PreparedStatement
+      values.zipWithIndex.foreach { case (value, index) =>
+        preparedStatement.setObject(index + 1, value)
+      }
+
+      preparedStatement.executeUpdate()
+      preparedStatement.getGeneratedKeys
     }
   }
 }

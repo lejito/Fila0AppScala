@@ -1,6 +1,6 @@
 package models
 
-import play.api.libs.json._
+import play.api.libs.json.{Json, OWrites}
 
 class Modulo {
   private var _id: Integer = _
@@ -22,10 +22,12 @@ class Modulo {
 
 object Modulo {
   implicit val writes: OWrites[Modulo] = new OWrites[Modulo] {
-    def writes(modulo: Modulo): play.api.libs.json.JsObject = Json.obj(
-      "id" -> Json.toJson(modulo.id.intValue()),
-      "usuario" -> modulo.usuario,
-      "clave" -> modulo.clave
-    )
+    def writes(modulo: Modulo): play.api.libs.json.JsObject = {
+      Json.obj(
+        "id" -> Json.toJson(modulo.id.intValue()),
+        "usuario" -> Json.toJson(modulo.usuario),
+        "clave" -> Json.toJson(modulo.clave)
+      )
+    }
   }
 }
